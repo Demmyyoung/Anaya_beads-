@@ -1,0 +1,333 @@
+/* This file contains all the styling for the portfolio page. */
+
+/* The '@font-face' rule allows us to use custom fonts. 'Homemade Apple' is used to match the handwritten style. */
+@font-face {
+    font-family: 'Homemade Apple';
+    src: url('https://fonts.gstatic.com/s/homemadeapple/v11/yOfz-S_nLgRz0Qe23X8yXkU7hHq1m.woff2') format('woff2');
+}
+
+/* Basic styling for the entire body to ensure a consistent look. */
+body {
+    margin: 0;
+    font-family: 'Homemade Apple', cursive; /* Set the custom font. */
+    background-color: #f5f5f5; /* A very light gray background. */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height. */
+    
+}
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url('../images/background.jpg'); /* Add this line */
+    background-size: cover;
+    background-position: center;
+}
+
+/* The main container that holds the header and the two content panels. */
+.main-container {
+    width: 90vw; /* Sets the width to 90% of the viewport width. */
+    height: 90vh; /* Sets the height to 90% of the viewport height. */
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Allows child elements to be positioned relative to this container. */
+    background-color: white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25); /* Stronger shadow for floating effect */
+    transition: transform 2s cubic-bezier(.22,1,.36,1) 1s, box-shadow 2s 1s;
+    transform: translateY(900px); /* Start slightly lower */
+    opacity: 0; /* Start invisible */
+    border-radius: 10px;
+    overflow: hidden; /* Add this line to hide overflowing content */
+}
+
+/* The header at the top of the page. */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 2px solid #333; /* A border to separate the header from the content. */
+}
+
+/* The logo image styling. */
+.logo {
+    height: 115px;
+    width: 115px;
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Add this for smooth animation */
+}
+
+.logo:hover {
+    transform: scale(1.05); /* This scales the logo on hover */
+}
+
+/* The navigation links styling. */
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    position: relative; /* Needed for the underline effect on hover. */
+}
+
+/* This creates a line that appears under the nav link when you hover over it. */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: #333;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Make all nav icons the same size and align them */
+.navigation .nav-link i,
+.navigation .feather {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;      /* For Font Awesome icons */
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1;
+}
+
+/* The main content area, split into two panels. */
+.content-wrapper {
+    display: flex;
+    flex: 1; /* Allows the content wrapper to take up the remaining space. */
+}
+
+/* Styling for both the left and right panels. */
+.panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box; /* Ensures borders and padding are included in the width */
+}
+
+/* Specific styling for the left panel. */
+.left-panel {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    background: #fff;
+    border-right: 2px dashed #ccc;
+    min-width: 0;
+}
+
+/* Specific styling for the right panel. */
+.right-panel {
+    background-color: #f1e4a6; /* A light yellow color for the background. */
+    border-radius: 0px;
+    display: flex;
+    flex-direction: column;
+    /* Ensure it fills available height */
+    min-height: 100%;
+    padding: 20px;
+}
+
+/* The container for the content inside each panel. */
+.panel-content {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+/* The title for the "Latest works" section. */
+.section-title {
+    font-size: 1.5rem;
+}
+
+/* Styling for the navigation arrows. */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    background: rgba(255,255,255,0.7);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transform: translateY(-50%);
+}
+
+.left-arrow {
+    left: 16px;
+}
+
+.right-arrow {
+    right: 16px;
+}
+
+.nav-arrow:hover {
+    background: rgba(255,255,255,0.95);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* The main text content on the right panel. */
+.text-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.panel-content.text-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: flex-start; /* Start content at the top */
+    align-items: flex-start;     /* Align text to the left */
+    height: 100%;
+    position: relative;
+}
+
+/* The signature line at the bottom. */
+.signature {
+    margin-top: auto;
+    padding-top: 1em;
+    font-style: italic;
+    text-align: right;
+    opacity: 0.8;
+    width: 100%;
+}
+
+/* Styling for product images in the portfolio. */
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.product-img:hover {
+    transform: scale(1.1);
+}
+
+.product-img.swipe-left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.product-img.swipe-right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.product-img.swipe-in {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Responsive design for smaller screens. */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .left-panel, .right-panel {
+        border-right: none;
+        border-bottom: 2px dashed #ccc;
+    }
+
+    .header {
+        flex-direction: column;
+       
+    }
+
+    .navigation {
+        margin-top: 10px;
+    }
+}
+
+/* Add this at the end of your CSS */
+.main-container.float-in {
+    transform: translateY(0);
+    opacity: 1;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.30); /* Even more pronounced shadow */
+}
+
+body.animating {
+    overflow: hidden;
+}
+
+.image-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 16px;
+}
+
+.image-wrapper {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.nav-arrow {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.nav-arrow svg {
+    display: block;
+    width: 32px;
+    height: 32px;
+    stroke: #333;
+    transition: stroke 0.2s, transform 0.2s;
+}
+
+.nav-arrow:hover svg {
+    stroke: #000;
+    transform: scale(1.15);
+}

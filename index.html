@@ -1,0 +1,143 @@
+<!-- This is the main HTML structure for the website. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anaya Beans</title>
+    <!-- We link to the CSS file here to apply the styles. -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="background-image">
+         <background-image src="./images/background.jpg" alt="Background Image" class="background-image">
+    </div>
+    <!-- This is the main container for the entire page. -->
+    <div class="main-container">
+        <!-- The header section, which contains the logo and navigation. -->
+        <header class="header">
+            <!-- This is the logo image. Note: I am using a placeholder. You would replace this with your actual logo. -->
+            <img src="./images/Logo.jpg" alt="Anaya's Logo" class="logo">
+            <!-- This is the navigation area. -->
+            <nav class="navigation">
+                <!-- This is the "About" link and the shopping bag icon. -->
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link" aria-label="Shop">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+    </a>
+                <a href="https://www.instagram.com/anaya_beads12/" target="_blank" class="nav-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </nav>
+        </header>
+
+        <!-- The main content area, split into two sections. -->
+        <main class="content-wrapper">
+            <!-- The left panel for "Latest works/socials". -->
+            <div class="panel left-panel">
+                <!-- Navigation arrows and title. -->
+                <div class="panel-content">
+                    <div class="image-slider">
+                        <button class="nav-arrow left-arrow" onclick="showPrevImage()" aria-label="Previous">
+                          
+                        </button>
+                        <div class="image-wrapper">
+                            <button class="nav-arrow left-arrow" onclick="showPrevImage()" aria-label="Previous">
+                              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                              </svg>
+                            </button>
+                            <img id="product-image" src="./images/Sample product (1).jpg" alt="Sample" class="product-img swipe-in">
+                            <button class="nav-arrow right-arrow" onclick="showNextImage()" aria-label="Next">
+                              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 6 15 12 9 18"></polyline>
+                              </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The right panel for the main text content. This is where you would put the "About" section. -->
+            <div class="panel right-panel">
+                <div class="panel-content text-content">
+                    <!-- The text content area. Using paragraphs to structure the text. -->
+                    <p>Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here.</p>
+                    <p>Input text here</p>
+                    <p class="signature">
+                        ---- Anaya ❤️
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- We link to the JavaScript file here. The 'defer' attribute ensures it runs after the HTML is loaded. -->
+    <script src="script.js" defer></script>
+    <script>
+window.addEventListener('DOMContentLoaded', function() {
+  document.body.classList.add('animating');
+  setTimeout(function() {
+    document.querySelector('.main-container').classList.add('float-in');
+    // Remove the animating class after the animation finishes (2s + delay)
+    setTimeout(function() {
+      document.body.classList.remove('animating');
+    }, 3000); // adjust if your animation duration/delay changes
+  }, 0);
+});
+
+const images = [
+    "./images/Sample product (1).jpg",
+    "./images/Sample product (2).jpg",
+    "./images/Sample product (3).jpg"
+];
+let currentIndex = 0;
+
+function showImage(nextIndex, direction) {
+    const wrapper = document.querySelector('.image-wrapper');
+    const oldImg = wrapper.querySelector('.product-img');
+    const newImg = document.createElement('img');
+    newImg.src = images[nextIndex];
+    newImg.alt = "Sample";
+    // Swap the direction logic here:
+    newImg.className = 'product-img ' + (direction === 'right' ? 'swipe-left' : 'swipe-right');
+    wrapper.appendChild(newImg);
+
+    // Force reflow to enable transition
+    void newImg.offsetWidth;
+
+    // Animate old image out, new image in
+    oldImg.classList.add(direction === 'left' ? 'swipe-left' : 'swipe-right');
+    newImg.classList.remove('swipe-left', 'swipe-right');
+    newImg.classList.add('swipe-in');
+
+    // Remove old image after animation
+    setTimeout(() => {
+        wrapper.removeChild(oldImg);
+    }, 500);
+
+    currentIndex = nextIndex;
+}
+
+function showPrevImage() {
+    const nextIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(nextIndex, 'left');
+}
+
+function showNextImage() {
+    const nextIndex = (currentIndex + 1) % images.length;
+    showImage(nextIndex, 'right');
+}
+
+// On first load, ensure the image has the swipe-in class
+window.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('product-image').classList.add('swipe-in');
+});
+</script>
+</body>
+</html>

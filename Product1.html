@@ -1,0 +1,84 @@
+<!-- This is the main HTML structure for the product details page. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <!-- We link to the CSS file here to apply the styles. -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Link to Font Awesome for the social media icon. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!-- Main container for the entire page content. This acts as a wrapper for both sections. -->
+    <div class="page-wrapper">
+        <!-- The header section, which contains the logo and navigation. -->
+        <header class="header">
+           <a href="./index.html">
+            <img src="./images/Logo.jpg" alt="Anaya's Logo" class="logo">
+            </a>
+            <nav class="navigation">
+                 <a href="./index.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link" aria-label="Shop">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/anaya_beads12/" target="_blank" class="nav-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </nav>
+        </header>
+
+        <!-- The main content area with the split-panel design for product details. -->
+        <main class="main-container">
+            <!-- The left panel for the product image. -->
+            <div class="panel left-panel product-panel">
+                 <img src="./images/Sample product (1).jpg">
+                <div class="product-detail-card">
+                    
+                </div>
+            </div>
+
+            <!-- The right panel for the product description. -->
+            <div class="panel right-panel">
+                <div class="panel-content text-content">
+                    <h1 class="product-discretion-title">Product discretion</h1>
+                    <p class="product-description">More information on the other hand 👋</p>
+                    <a href="#" class="buy-button">Buy</a>
+                </div>
+            </div>
+        </main>
+        
+        <!-- The collections section, which now sits below the main content area. -->
+        <div class="collections-section-wrapper">
+            <section class="collection-section">
+                <div class="product-grid bottom-grid">
+                    <div class="product-card">
+                        <div class="product-placeholder"></div>
+                        <p class="product-category">Necklace</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-placeholder"></div>
+                        <p class="product-category">Bracelets</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-placeholder"></div>
+                        <p class="product-category">Rings</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-placeholder"></div>
+                        <p class="product-category">African</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- We link to the JavaScript file here. The 'defer' attribute ensures it runs after the HTML is loaded. -->
+    <script src="./js/script.js" defer></script>
+</body>
+</html>

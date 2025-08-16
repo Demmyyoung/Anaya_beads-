@@ -1,4 +1,4 @@
-/* This file contains all the styling for the combined webpage. */
+/* This file contains all the styling for the product details page. */
 
 /* The '@font-face' rule allows us to use custom fonts. 'Homemade Apple' is used to match the handwritten style. */
 @font-face {
@@ -37,7 +37,6 @@ body {
     align-items: center;
     padding: 20px 40px;
     background-color: white;
-    
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -111,13 +110,14 @@ body {
 }
 
 .left-panel {
-    background: #fff;
+    background: #f1e4a6;
+    border-right: 2px dashed #ccc;
     min-width: 0;
     padding: 0;
 }
 
 .right-panel {
-    background-color: #f1e4a6;
+    background-color: #f5f5f5;
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -135,109 +135,55 @@ body {
     max-width: 500px;
 }
 
-.text-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin: 20px auto;
+.product-discretion-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
-.signature {
-    margin-top: auto;
-    padding-top: 1em;
-    font-style: italic;
-    text-align: right;
-    opacity: 0.8;
-    width: 100%;
+.product-description {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin: 0;
 }
 
-/* Image slider styles */
-.image-slider {
+/* New styling for the product detail card on the left panel. */
+.product-panel {
+    background-color: #f1e4a6;
+    padding: 40px;
+   
+}
+.product-detail-card {
+    background-color: white;
+    border-radius: 15px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    gap: 16px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   
+}
+.product-detail-placeholder {
+    /* Increased height for the main product image. */
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    
 }
 
-.image-wrapper {
-    flex: 1;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-}
-
-.nav-arrow {
-    background: rgba(255, 255, 255, 0.404);
-    border: none;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
+.buy-button {
+    font-family: 'Homemade Apple', cursive;
+    background-color: transparent;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
-.left-arrow {
-    left: 16px;
-}
-
-.right-arrow {
-    right: 16px;
-}
-
-.nav-arrow:hover {
-    background: rgba(255, 255, 255, 0.6);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.nav-arrow svg {
-    display: block;
-    width: 32px;
-    height: 32px;
-    stroke: #333;
-
-    transition: stroke 0.2s, transform 0.2s;
-}
-
-.nav-arrow:hover svg {
-    stroke: #000;
-    transform: scale(1.15);
-}
-
-.product-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transition: transform 0.5s, opacity 0.5s;
-}
-
-.product-img.swipe-left {
-    transform: translateX(-100%);
-    opacity: 0;
-}
-
-.product-img.swipe-right {
-    transform: translateX(100%);
-    opacity: 0;
-}
-
-.product-img.swipe-in {
-    transform: translateX(0);
-    opacity: 1;
+.buy-button:hover {
+    background-color: #333;
+    color: white;
 }
 
 /* Collections section styles */
@@ -298,7 +244,6 @@ body {
     align-items: center;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
 }
 
 .product-placeholder {
@@ -307,7 +252,6 @@ body {
     background-color: #f5f5f5;
     border-radius: 10px;
     margin-bottom: 10px;
-    text-decoration: none;
 }
 
 .buy-button {
@@ -318,8 +262,6 @@ body {
     padding: 5px 10px;
     cursor: pointer;
     font-size: 1rem;
-    color: #333;
-    text-decoration: none;
 }
 
 .buy-button:hover {
@@ -327,32 +269,16 @@ body {
     color: white;
 }
 
-.product-detail-card {
-    width: 90%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.product-detail-placeholder {
-    width: 100%;
-    padding-top: 100%; /* Creates a square aspect ratio */
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
 .product-category {
     margin: 0;
     font-size: 1.1rem;
 }
 
+/* Responsive design */
 @media (max-width: 768px) {
     .main-container {
         flex-direction: column;
     }
-
     .left-panel {
         border-right: none;
         border-bottom: 2px dashed #ccc;
@@ -367,34 +293,36 @@ body {
     .page-wrapper {
         gap: 20px;
     }
+    .product-detail-card {
+        height: auto;
+    }
 }
 
 @media (max-width: 600px) {
     .collections-title {
         font-size: 2rem;
     }
-
     .collection-section {
         padding: 20px;
     }
+    .product-discretion-title {
+        font-size: 2rem;
+    }
+    .product-description {
+        font-size: 1.2rem;
+    }
 }
+
 @media (max-width: 480px) {
     .nav-link {
         font-size: 1rem;
     }
-
     .logo {
         height: 80px;
         width: 80px;
     }
-
-    .nav-arrow {
-        width: 40px;
-        height: 40px;
-    }
-
-    .nav-arrow svg {
-        width: 24px;
-        height: 24px;
+    .navigation {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }

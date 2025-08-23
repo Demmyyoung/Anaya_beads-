@@ -67,6 +67,34 @@ body {
     position: relative;
 }
 
+.nav-link .cart-icon {
+    position: relative;
+}
+
+#cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #333;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f1e4a6;
+    color: #333;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-family: sans-serif;
+}
+
 .nav-link::after {
     content: '';
     position: absolute;
@@ -162,7 +190,7 @@ body {
 
 .image-wrapper {
     flex: 1;
-    height: 100%;
+    height: 400px; /* Added fixed height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -397,4 +425,76 @@ body {
         width: 24px;
         height: 24px;
     }
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 8px;
+}
+
+#cart-items div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#cart-total {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 30px;
+    text-align: right;
+    width: 100%;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.cart-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.cart-buttons button {
+    font-family: 'Homemade Apple', cursive;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.cart-buttons button:hover {
+    background-color: #555;
+}
+
+.panel-content {
+    width: 100%;
+    max-width: 800px; /* Adjust as needed */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.main-container {
+    align-items: flex-start; /* Align content to the top */
+}
+
+.panel {
+    width: 100%;
+    background-color: #f5f5f5; /* Light background for the cart panel */
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    box-sizing: border-box;
 }

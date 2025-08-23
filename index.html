@@ -1,196 +1,186 @@
 <!-- This is the combined HTML structure for your entire webpage. -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anaya Beans</title>
     <!-- We link to the CSS file here to apply the styles. -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css" />
     <!-- Link to Font Awesome for the social media icon. -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- Main container for the entire page content. This acts as a wrapper for both sections. -->
     <div class="page-wrapper">
-        <!-- The header section, which contains the logo and navigation. -->
-        <header class="header">
-            <a href="./index.html">
-            <img src="./images/Logo.jpg" alt="Anaya's Logo" class="logo">
-            </a>
-            <nav class="navigation">
-                <a href="#" class="nav-link">About</a>
-                <a href="#" class="nav-link" aria-label="Shop">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                    </svg>
-                </a>
-                <a href="https://www.instagram.com/anaya_beads12/" target="_blank" class="nav-link" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </nav>
-        </header>
+      <!-- The header section, which contains the logo and navigation. -->
+      <header class="header">
+        <a href="./index.html">
+          <img src="./images/Logo.jpg" alt="Anaya's Logo" class="logo" />
+        </a>
+        <nav class="navigation">
+          <a href="#" class="nav-link">About</a>
+          <a href="./cart.html" class="nav-link" aria-label="Shop">
+            <span class="cart-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-shopping-bag"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                ></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <span id="cart-count">0</span>
+            </span>
+          </a>
+          <a
+            href="https://www.instagram.com/anaya_beads12/"
+            target="_blank"
+            class="nav-link"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+        </nav>
+      </header>
 
-        <!-- The main content area with the split-panel design. -->
-        <main class="main-container">
-            <!-- The left panel for the image slider. -->
-            <div class="panel left-panel">
-                <div class="image-slider">
-                    <div class="image-wrapper">
-                        <button class="nav-arrow left-arrow" onclick="showPrevImage()" aria-label="Previous">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="15 18 9 12 15 6"></polyline>
-                            </svg>
-                        </button>
-                        <img src="./images/Sample product (1).jpg" alt="Sample" class="product-img swipe-in">
-                        <button class="nav-arrow right-arrow" onclick="showNextImage()" aria-label="Next">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 6 15 12 9 18"></polyline>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+      <!-- The main content area with the split-panel design. -->
+      <main class="main-container">
+        <!-- The left panel for the image slider. -->
+        <div class="panel left-panel">
+          <div class="image-slider">
+            <div class="image-wrapper">
+              <button
+                class="nav-arrow left-arrow"
+                onclick="showPrevImage()"
+                aria-label="Previous"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#333"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <img
+                src="./images/Sample product (1).jpg"
+                alt="Sample"
+                class="product-img swipe-in"
+              />
+              <button
+                class="nav-arrow right-arrow"
+                onclick="showNextImage()"
+                aria-label="Next"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#333"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="9 6 15 12 9 18"></polyline>
+                </svg>
+              </button>
             </div>
-
-            <!-- The right panel for the text content. -->
-            <div class="panel right-panel">
-                <div class="panel-content text-content">
-                    <p>Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here. Input text here.</p>
-                    <p>Input text here</p>
-                    <p class="signature">---- Anaya ❤️</p>
-                </div>
-            </div>
-        </main>
-        
-        <!-- The collections section, which now sits below the main content area. -->
-        <div class="collections-section-wrapper">
-            <section class="collection-section">
-                <div class="product-grid top-grid">
-                    <div class="product-card">
-                        <div class="product-placeholder"></div>
-                        <a href="Product1.html" class="buy-button">Buy</a>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-placeholder"></div>
-                        <a href="Product1.html" class="buy-button">Buy</a>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-placeholder"></div>
-                        <a href="Product1.html" class="buy-button">Buy</a>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-placeholder"></div>
-                        <a href="Product1.html" class="buy-button">Buy</a>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-placeholder"></div>
-                        <a href="Product1.html" class="buy-button">Buy</a>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-placeholder"></div>
-                        <a href="Product1.html" class="buy-button">Buy</a>
-                    </div>
-                </div>
-            </section>
-            <header class="collections-header">
-                <h1 class="collections-title">Our collections</h1>
-            </header>
-            <section class="collection-section">
-                <div class="product-grid bottom-grid">
-                    <div class="product-card">
-                        <div class="product-placeholder"></div>
-                        <p class="product-category">Necklace</p>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-placeholder"></div>
-                        <p class="product-category">Bracelets</p>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-placeholder"></div>
-                        <p class="product-category">Earings</p>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-placeholder"></div>
-                        <p class="product-category">African</p>
-                    </div>
-                </div>
-            </section>
+          </div>
         </div>
+
+        <!-- The right panel for the text content. -->
+        <div class="panel right-panel">
+          <div class="panel-content text-content">
+            <p>
+              Input text here. Input text here. Input text here. Input text
+              here. Input text here. Input text here. Input text here. Input
+              text here. Input text here. Input text here. Input text here.
+              Input text here. Input text here. Input text here. Input text
+              here. Input text here. Input text here. Input text here.
+            </p>
+            <p>Input text here</p>
+            <p class="signature">---- Anaya ❤️</p>
+          </div>
+        </div>
+      </main>
+
+      <!-- The collections section, which now sits below the main content area. -->
+      <div class="collections-section-wrapper">
+        <section class="collection-section">
+          <div class="product-grid top-grid">
+            <div class="product-card">
+              <div class="product-placeholder"></div>
+              <a href="Product1.html" class="buy-button">Buy</a>
+            </div>
+            <div class="product-card">
+              <div class="product-placeholder"></div>
+              <a href="product2.html" class="buy-button">Buy</a>
+            </div>
+            <div class="product-card">
+              <div class="product-placeholder"></div>
+              <a href="product3.html" class="buy-button">Buy</a>
+            </div>
+            <div class="product-card">
+              <div class="product-placeholder"></div>
+              <a href="product4.html" class="buy-button">Buy</a>
+            </div>
+            <div class="product-card">
+              <div class="product-placeholder"></div>
+              <a href="Product1.html" class="buy-button">Buy</a>
+            </div>
+            <div class="product-card">
+              <div class="product-placeholder"></div>
+              <a href="Product1.html" class="buy-button">Buy</a>
+            </div>
+          </div>
+        </section>
+        <header class="collections-header">
+          <h1 class="collections-title">Our collections</h1>
+        </header>
+        <section class="collection-section">
+          <div class="product-grid bottom-grid">
+            <div class="product-card">
+              <div class="product-placeholder"></div>
+              <p class="product-category">Necklace</p>
+            </div>
+            <div class="product-card">
+              <div class="product-placeholder"></div>
+              <p class="product-category">Bracelets</p>
+            </div>
+            <div class="product-card">
+              <div class="product-placeholder"></div>
+              <p class="product-category">Earings</p>
+            </div>
+            <div class="product-card">
+              <div class="product-placeholder"></div>
+              <p class="product-category">African</p>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
     <!-- We link to the JavaScript file here. The 'defer' attribute ensures it runs after the HTML is loaded. -->
+    <script src="./js/cart.js" defer></script>
     <script src="./js/script.js" defer></script>
-    <script>
-        // JavaScript for the animated image slider
-        const images = [
-            './images/Sample product (1).jpg',
-            './images/Sample product (2).jpg',
-            './images/Sample product (3).jpg'
-        ];
-        let currentIndex = 0;
-        let isAnimating = false; // A flag to prevent multiple clicks during an animation
-    
-        const imageWrapper = document.querySelector('.image-wrapper');
-    
-        function showNextImage() {
-            if (isAnimating) return;
-            isAnimating = true;
-    
-            const oldImage = imageWrapper.querySelector('.product-img');
-            oldImage.classList.add('swipe-left'); // Animate current image out to the left
-            oldImage.classList.remove('swipe-in');
-    
-            currentIndex = (currentIndex + 1) % images.length;
-    
-            const newImage = document.createElement('img');
-            newImage.src = images[currentIndex];
-            newImage.alt = "Sample";
-            newImage.className = 'product-img swipe-right'; // Position new image off-screen to the right
-            imageWrapper.appendChild(newImage);
-    
-            // This small delay allows the browser to apply the initial 'swipe-right' style
-            // before we add 'swipe-in' to trigger the transition.
-            setTimeout(() => {
-                newImage.classList.remove('swipe-right');
-                newImage.classList.add('swipe-in');
-            }, 10);
-    
-            // After the 500ms animation is complete, remove the old image and reset the flag.
-            setTimeout(() => {
-                oldImage.remove();
-                isAnimating = false;
-            }, 500);
-        }
-    
-        function showPrevImage() {
-            if (isAnimating) return;
-            isAnimating = true;
-    
-            const oldImage = imageWrapper.querySelector('.product-img');
-            oldImage.classList.add('swipe-right'); // Animate current image out to the right
-            oldImage.classList.remove('swipe-in');
-    
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-    
-            const newImage = document.createElement('img');
-            newImage.src = images[currentIndex];
-            newImage.alt = "Sample";
-            newImage.className = 'product-img swipe-left'; // Position new image off-screen to the left
-            imageWrapper.appendChild(newImage);
-    
-            setTimeout(() => {
-                newImage.classList.remove('swipe-left');
-                newImage.classList.add('swipe-in');
-            }, 10);
-    
-            setTimeout(() => {
-                oldImage.remove();
-                isAnimating = false;
-            }, 500);
-        }
-    </script>
-</body>
+  </body>
 </html>
-
-   

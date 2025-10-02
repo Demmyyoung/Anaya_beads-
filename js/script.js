@@ -1,8 +1,30 @@
 // JavaScript for the animated image slider
 const images = [
-  "./images/Sample product (1).jpg",
-  "./images/Sample product (2).jpg",
-  "./images/Sample product (3).jpg",
+  "./images/products/product (6).jpg",
+  "./images/products/product (2).jpg",
+  "./images/products/product (1).jpg",
+  "./images/products/product (3).jpg",
+  "./images/products/product (4).jpg",
+  "./images/products/product (5).jpg",
+  "./images/products/product (7).jpg",
+  "./images/products/product (8).jpg",
+  "./images/products/product (9).jpg",
+  "./images/products/product (10).jpg",
+  "./images/products/product (11).jpg",
+  "./images/products/product (12).jpg",
+  "./images/products/product (13).jpg",
+  "./images/products/product (14).jpg",
+  "./images/products/product (15).jpg",
+  "./images/products/product (16).jpg",
+  "./images/products/product (17).jpg",
+  "./images/products/product (18).jpg",
+  "./images/products/product (19).jpg",
+  "./images/products/product (20).jpg",
+  "./images/products/product (21).jpg",
+  "./images/products/product (22).jpg",
+  "./images/products/product (23).jpg",
+  "./images/products/product (24).jpg",
+  "./images/products/product (25).jpg",
 ];
 let currentIndex = 0;
 let isAnimating = false; // A flag to prevent multiple clicks during an animation
@@ -65,3 +87,43 @@ function showPrevImage() {
     isAnimating = false;
   }, 500);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('user-info-modal');
+    const span = document.getElementsByClassName('close-button')[0];
+    const form = document.getElementById('user-info-form');
+
+    // Show the modal if the user info is not in localStorage
+    if (!localStorage.getItem('userInfo')) {
+        modal.style.display = 'block';
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    if(span){
+        span.onclick = function() {
+        modal.style.display = 'none';
+    }
+    }
+
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // When the user submits the form, save the info and close the modal
+    if(form){
+            form.onsubmit = function(event) {
+        event.preventDefault();
+        const userInfo = {
+            name: form.name.value,
+            address: form.address.value,
+            email: form.email.value,
+        };
+        localStorage.setItem('userInfo', JSON.stringify(userInfo));
+        modal.style.display = 'none';
+    }
+    }
+});

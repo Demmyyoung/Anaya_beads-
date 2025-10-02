@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anaya Beads - Product 5</title>
+    <link rel="stylesheet" href="./css/product-page.css">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header">
+            <a href="./index.html">
+              <img src="./images/media/Logo.jpg" alt="Anaya's Logo" class="logo" />
+            </a>
+            <nav class="navigation">
+              <a href="./Store.html" class="nav-link">Store</a>
+              <a href="#" class="nav-link">About</a>
+              <a href="./cart.html" class="nav-link" aria-label="Shop">
+                <span class="cart-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                  </svg>
+                  <span id="cart-count">0</span>
+                </span>
+              </a>
+              <a href="https://www.instagram.com/anaya_beads12/" target="_blank" class="nav-link" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </nav>
+        </header>
+        <main class="main-container">
+            <div class="product-details">
+                <img src="./images/products/product (5).jpg" alt="Product 5" class="product-image">
+                <div class="product-info">
+                    <h1 class="product-title">Product 5</h1>
+                    <p class="product-price">₦15.99</p>
+                    <button class="add-to-cart-button" onclick="addToCart('Product 5', 15.99, './images/products/product (5).jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="./js/cart.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+/* This is a universal selector that resets default browser styles. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling for the entire page body. */
+body {
+    font-family: sans-serif;
+    /* Sets a light grey background color for the page. */
+    background-color: #f0f0f0; 
+    /* This centers the main grid container on the page. */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensures the body takes up at least the full viewport height. */
+}
+
+
+
+/* This is the main container that holds the grid of yellow boxes. */
+.grid-container {
+    /* Sets the background color seen around the boxes. */
+    background-color: #fffbef;
+    /* Creates the purple border. 5px width, solid style, purple color. */
+    border: 5px solid #8a2be2;
+    /* Adds some space between the border and the grid items. */
+    padding: 20px;
+    border-radius: 12px; /* Adds rounded corners to the container. */
+
+    /* --- CSS Grid Layout --- */
+    /* This turns the container into a grid. */
+    display: grid; 
+    /* This creates 5 columns of equal width (1fr means 1 fraction of the available space). */
+    grid-template-columns: repeat(4, 1fr); 
+    /* This sets the space (gap) between the grid items, both horizontally and vertically. */
+    gap: 20px;
+    
+    /* Sets a maximum width for the container so it doesn't get too large on big screens. */
+    max-width: 1200px;
+    width: 95%; /* Makes the container responsive to the screen width. */
+}
+
+/* Styling for each individual yellow box inside the grid. */
+.grid-item {
+    /* Sets the yellow background color. */
+    background-color: #fde047;
+    /* This is a modern CSS property to make the item a perfect square. */
+    aspect-ratio: 1 / 1;
+    border-radius: 8px; /* Adds rounded corners to the items. */
+
+    /* --- Flexbox for positioning text --- */
+    /* This is used to easily position the 'Buy' text inside the box. */
+    display: flex;
+    /* This aligns the text to the bottom of the box. */
+    align-items: flex-end;
+    /* This aligns the text to the left of the box. */
+    justify-content: flex-start;
+    /* Adds some internal padding so the text isn't stuck to the edges. */
+    padding: 10px;
+}
+
+/* Styling for the 'Buy' text itself. */
+.grid-item span {
+    /* Sets the font to the 'Caveat' cursive font we imported from Google Fonts. */
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem; /* Sets the size of the font. 'rem' is a responsive unit. */
+    color: #333; /* A dark grey color for the text. */
+}

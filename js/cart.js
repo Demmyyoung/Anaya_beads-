@@ -24,14 +24,14 @@ function updateCart() {
             const itemElement = document.createElement('div');
             itemElement.innerHTML = `
                 <img src="${item.image}" alt="${item.productName}" class="cart-item-image">
-                <span>${item.productName} - $${item.price} x ${item.quantity}</span>
+                <span>${item.productName} - ₦${item.price} x ${item.quantity}</span>
             `;
             cartItems.appendChild(itemElement);
             total += item.price * item.quantity;
         });
 
         if (cartTotal) {
-            cartTotal.innerText = `Total: $${total.toFixed(2)}`;
+            cartTotal.innerText = `Total: ₦${total.toFixed(2)}`;
         }
     }
 
@@ -49,8 +49,58 @@ function clearCart() {
 }
 
 function proceedToCheckout() {
-    alert('Proceeding to checkout!');
-    // Here you would typically redirect to a checkout page or process the order.
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+
+    if (!userInfo) {
+        // If user info is not available, show the modal.
+        const modal = document.getElementById('user-info-modal');
+        if (modal) {
+            modal.style.display = 'block';
+        } else {
+            // Fallback if modal is not on the current page
+            alert('Please provide your information before checking out.');
+        }
+        return;
+    }
+
+    let totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    let cartSummary = cart.map(item => `${item.quantity}x ${item.productName} (₦${item.price})`).join(', ');
+
+    let handler = PaystackPop.setup({
+        key: 'pk_test_472fcef3f33a8e93ad95fd25bdf05d21352b66ea', // Replace with your Paystack public key
+        email: userInfo.email,
+        amount: totalAmount * 100, // Convert to kobo
+        currency: 'NGN',
+        ref: '' + Math.floor(Math.random() * 1000000000 + 1),
+        metadata: {
+            custom_fields: [
+                {
+                    display_name: "Cart Items",
+                    variable_name: "cart_items",
+                    value: cartSummary
+                },
+                {
+                    display_name: "Delivery Address",
+                    variable_name: "delivery_address",
+                    value: userInfo.address
+                },
+                {
+                    display_name: "Customer Name",
+                    variable_name: "customer_name",
+                    value: userInfo.name
+                }
+            ]
+        },
+        callback: function(response) {
+            alert('Payment successful! Reference: ' + response.reference);
+            clearCart(); // Optional: clear cart after successful payment
+        },
+        onClose: function() {
+            alert('Transaction was not completed.');
+        }
+    });
+
+    handler.openIframe();
 }
 
 function showNotification(message) {
